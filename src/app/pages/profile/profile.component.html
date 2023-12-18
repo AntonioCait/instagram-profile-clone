@@ -1,0 +1,87 @@
+<div class="header w-full justify-center px-4 pt-14 pb-14">
+  <div class="user flex w-8/12 m-auto">
+    <!--    col 1 is for image-->
+    <div class="image pr-14">
+      <div
+        class="user__avatar bg-cover bg-center bg-no-repeat rounded-full w-36 h-36 shadow-md"
+      >
+        <img
+          [ngSrc]="userPhotos[0]?.url || 'image'"
+          alt="avatar"
+          class="rounded-full w-full"
+          [width]="36"
+          [height]="36"
+          priority="true"
+        />
+      </div>
+    </div>
+
+    <!--    col 2 is for name, edit profile, settings, posts, followers, following-->
+    <div
+      class="container-name-btns-stats flex flex-col justify-center space-y-5 px-2"
+    >
+      <!--      name and buttons-->
+      <div class="name-buttons w-full flex items-center justify-end">
+        <div class="user__name text-xl mr-20 text-white">
+          {{ user?.username }}
+        </div>
+        <!-- button edit profile -->
+        <div
+          class="user__edit-profile ml-auto flex items-center justify-center bg-gray-800 rounded-md w-28 h-10 text-gray-300 font-medium cursor-pointer hover:bg-gray-600 transition duration-300 ease-in-out"
+        >
+          <button>Edit Profile</button>
+        </div>
+        <!-- icon of settings -->
+        <div
+          class="user__settings ml-4 flex items-center justify-center bg-gray-800 rounded-full w-10 h-10 text-gray-300 font-bold cursor-pointer hover:bg-gray-600 transition duration-300 ease-in-out"
+        >
+          <i class="fas fa-cog"></i>
+        </div>
+      </div>
+      <!-- posts, followers, following -->
+      <div class="stats w-full flex justify-center">
+        <div class="stats__posts flex items-center mr-20">
+          <div class="stats__posts__number text-white text-md mr-2 font-medium">
+            {{ userPosts.length }}
+          </div>
+          <div class="stats__posts__text text-white text-md">Posts</div>
+        </div>
+        <div class="stats__followers flex items-center mr-20">
+          <div
+            class="stats__followers__number text-white text-md mr-2 font-medium"
+          >
+            256
+          </div>
+          <div class="stats__followers__text text-white text-md">Followers</div>
+        </div>
+        <div class="stats__following flex items-center">
+          <div
+            class="stats__following__number text-white text-md mr-2 font-medium"
+          >
+            124
+          </div>
+          <div class="stats__following__text text-white text-md">Following</div>
+        </div>
+      </div>
+
+      <!-- user bio -->
+      <div class="bio">
+        <div class="bio__description text-white">
+          <div class="bio__description__text text-sm font-bold">
+            {{ user?.name }}
+          </div>
+          <div class="bio__description__text text-sm">
+            From {{ user?.address?.city }}
+            <span class="text-gray-400 font-bold text-xs ml-2 mr-2"> - </span>
+            Working at {{ user?.company?.name }}
+            <!-- random emojis dynamically generated -->
+            <span class="text-2xl mr-2">{{ randomEmoji }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--  highlights-->
+  <app-highlights [highlights]="userPhotos"></app-highlights>
+</div>

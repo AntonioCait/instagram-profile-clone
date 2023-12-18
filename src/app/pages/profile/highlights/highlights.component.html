@@ -1,0 +1,19 @@
+<div class="highlights-container flex p-10 space-x-10">
+  @if (photosFrom7To10.length > 0) {
+    @for (photo of photosFrom7To10; track photo.title) {
+      <!--    highlights-->
+
+      <div
+        class="user__avatar bg-cover bg-center bg-no-repeat rounded-full w-20 h-20 border-2 border-gray-300 shadow-md"
+      >
+        <img
+          [ngSrc]="photo.url"
+          alt="Photo"
+          class="rounded-full w-full"
+          [width]="20"
+          [height]="20"
+        />
+      </div>
+    }
+  }
+</div>

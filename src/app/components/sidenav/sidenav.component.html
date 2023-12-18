@@ -1,0 +1,17 @@
+<nav class="vertical-sidenav-left bg-black w-80 p-10 h-screen">
+  <div class="text-white pb-12">
+    <div [innerHTML]="getSafeSvg(logo)"></div>
+  </div>
+  <div class="text-white">
+    <ul>
+      <!--get svg paths from the ts file array-->
+      @for (icon of sideBarIcons; track icon.name){
+        <li class="flex p-3 mb-6 hover:bg-gray-900 cursor-pointer rounded-md">
+          <div class="pr-2" [innerHTML]="getSafeSvg(icon.svgPath)"></div>
+<!--          dynamic routing to the icon.path-->
+          <a [routerLink]="[icon.path]" class="text-white">{{icon.name}}</a>
+        </li>
+      }
+    </ul>
+  </div>
+</nav>
